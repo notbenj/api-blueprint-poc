@@ -1,0 +1,133 @@
+FORMAT: 1A
+
+# Référentiel RGAA
+
+API permettant de voir les thématiques RGAA, sa méthodologie ainsi que son glossaire.
+
+# Group Thématiques
+
+Thématiques du référentiel RGAA.
+
+## Thématiques [/thematiques]
+
+### Liste des thématiques [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "section": "1",
+                "nom": "Images",
+                "principeWCAG": "Perceptible",
+                "recommandation": "Donner à chaque <a href=\"#image-porteuse-dinformation\">image porteuse d'information</a> une <a href=\"#alternative-textuelle-image\">alternative textuelle</a> pertinente et une <a href=\"#description-dtaille-image\">description détaillée</a> si nécessaire. Remplacer les images textes par du texte stylé lorsque c'est possible."
+            }
+        ]
+
+# Group Critères
+
+Critères du référentiel RGAA. Un critère est lié à une thématique.
+
+## Critères [/criteres/{thematiqueSection}]
+
++ Parameters
+    + thematiqueSection (number) - section de la thématique pour laquelle retourner les critères
+
+### Liste des critères d'une thématique [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "section": "1.1",
+                "thematiqueSection": "1",
+                "niveau": "A",
+                "principeWCAG": "Perceptible",
+                "nom": "Chaque image a-t-elle une alternative textuelle ?"
+            }
+        ]
+
+# Group Tests
+
+Tests du référentiel RGAA. Un test est lié à un critère.
+
+## Group Tests [/tests/{critereSection}]
+
++ Parameters
+    + critereSection (number) - Section du critère pour lequel retourner les tests
+
+### Liste des tests d'un critère [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "section": "1.1.1",
+                "critereSection": "1.1",
+                "recommandation": "Chaque image (balise <code lang=\"en\" xmllang=\"en\">img</code>) a-t-elle un attribut <code lang=\"en\" xmllang=\"en\">alt</code> ?"
+            }
+        ]
+
+# Group Méthodologies
+
+Méthodologies du référentiel RGAA. Une méthodologie est liée à un test.
+
+## Méthodologies [/methodologies/{testSection}]
+
++ Parameters
+    + testSection (number) - Section du test pour lequel retourner les méthodologies
+
+### Liste des méthodologies d'un test [GET]
+
++ Response 200 (application/json)
+
+        [
+            {
+                "testSection": "1.1.1",
+                "type": "wat",
+                "items": [
+                    "Dans le menu <i lang=\"en\">Images</i>, activer l'option <i lang=\"en\">List images</i>.",
+                    "Tous les éléments graphiques de la page s'affichent avec, en dessous, l'extrait de code source correspondant.",
+                    "Vérifier que chaque image possède un attribut <code>alt</code>.",
+                    "Si c'est le cas, le test est validé."
+                ]
+            },
+            {
+                "testSection": "1.1.1",
+                "type": "webdev",
+                "items": [
+                    "Dans le menu CSS, activer l'option « Désactiver les styles CSS » puis « Tous les styles ».",
+                    "Dans le menu « Images », activer l'option « Afficher les attributs <code>alt</code> ».",
+                    "Dans le menu « Entourer », activer l'option « Éléments personnalisés », saisir&nbsp;:<ul><li>« img » pour afficher les balises <code>img</code>.</li><li>« input » pour afficher les balises <code>input</code>.</li></ul>",
+                    "Chercher dans la page les images et les boutons images dépourvus d'alternative.",
+                    "Si aucun résultat n'est trouvé, le test est validé."
+                ]
+            },
+            {
+                "testSection": "1.1.1",
+                "type": "validate",
+                "items": [
+                    "Valider le code.",
+                    "Vérifier que le validateur ne remonte aucune erreur due à l'absence d'un attribut <code>alt</code>. <span class=\"note\">(Exemple&nbsp;: <q lang=\"en\">An img element must have an alt attribute, except under certain conditions.</q>)</span>",
+                    "Si c'est le cas, le test est validé."
+                ]
+            }
+        ]
+
+# Group Glossaire
+
+Glossaire du référentiel RGAA.
+
+## Glossaire [/glossaire/{termeId}]
+
++ Parameters
+    + termeId (number) - Id du terme du glossaire à récupérer
+
+### Terme du glossaire [GET]
+
++ Response 200 (application/json)
+
+        {
+            "id": 1,
+            "terme": "Accéder à chaque page de la collection de pages",
+            "definition": "Dans le cas où la collection de pages comporte un grand nombre de pages, il est habituel de présenter ces liens d'accès aux pages par groupes de liens, par séquences de 10 liens, par exemple. Cette pratique valide le test."
+        }
