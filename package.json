@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "apiDoc": "aglio --theme-full-width -i referentiel-rgaa.apib -o index.html",
+    "apiDoc": "aglio --theme-full-width -i rgaa-repository.apib -o index.html",
     "start": "node node_modules/http-server/bin/http-server"
   },
   "keywords": [],
