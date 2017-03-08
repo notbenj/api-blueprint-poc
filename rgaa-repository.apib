@@ -46,6 +46,8 @@ Critères du référentiel RGAA. Un critère est lié à une thématique.
             }
         ]
 
++ Response 404
+
 # Group Tests
 
 Tests du référentiel RGAA. Un test est lié à un critère.
@@ -67,6 +69,8 @@ Tests du référentiel RGAA. Un test est lié à un critère.
             }
         ]
 
++ Response 404
+
 # Group Méthodologies
 
 Méthodologies du référentiel RGAA. Une méthodologie est liée à un test.
@@ -80,38 +84,12 @@ Méthodologies du référentiel RGAA. Une méthodologie est liée à un test.
 
 + Response 200 (application/json)
 
-        [
-            {
-                "testSection": "1.1.1",
-                "type": "wat",
-                "items": [
-                    "Dans le menu <i lang=\"en\">Images</i>, activer l'option <i lang=\"en\">List images</i>.",
-                    "Tous les éléments graphiques de la page s'affichent avec, en dessous, l'extrait de code source correspondant.",
-                    "Vérifier que chaque image possède un attribut <code>alt</code>.",
-                    "Si c'est le cas, le test est validé."
-                ]
-            },
-            {
-                "testSection": "1.1.1",
-                "type": "webdev",
-                "items": [
-                    "Dans le menu CSS, activer l'option « Désactiver les styles CSS » puis « Tous les styles ».",
-                    "Dans le menu « Images », activer l'option « Afficher les attributs <code>alt</code> ».",
-                    "Dans le menu « Entourer », activer l'option « Éléments personnalisés », saisir&nbsp;:<ul><li>« img » pour afficher les balises <code>img</code>.</li><li>« input » pour afficher les balises <code>input</code>.</li></ul>",
-                    "Chercher dans la page les images et les boutons images dépourvus d'alternative.",
-                    "Si aucun résultat n'est trouvé, le test est validé."
-                ]
-            },
-            {
-                "testSection": "1.1.1",
-                "type": "validate",
-                "items": [
-                    "Valider le code.",
-                    "Vérifier que le validateur ne remonte aucune erreur due à l'absence d'un attribut <code>alt</code>. <span class=\"note\">(Exemple&nbsp;: <q lang=\"en\">An img element must have an alt attribute, except under certain conditions.</q>)</span>",
-                    "Si c'est le cas, le test est validé."
-                ]
-            }
-        ]
+        {
+            "testSection": "1.1.1",
+            "description": "<h1>wat</h1><ul><li>Dans le menu <i lang=\"en\">Images</i>, activer l'option <i lang=\"en\">List images</i>.</li><li>Tous les éléments graphiques de la page s'affichent avec, en dessous, l'extrait de code source correspondant.</li><li>Vérifier que chaque image possède un attribut <code>alt</code>.</li><li>Si c'est le cas, le test est validé.</li></ul><h1>webdev</h1><ul><li>Dans le menu CSS, activer l'option « Désactiver les styles CSS » puis « Tous les styles ».</li><li>Dans le menu « Images », activer l'option « Afficher les attributs <code>alt</code> ».</li><li>Dans le menu « Entourer », activer l'option « Éléments personnalisés », saisir&nbsp;:<ul><li>« img » pour afficher les balises <code>img</code>.</li><li>« input » pour afficher les balises <code>input</code>.</li></ul></li><li>Chercher dans la page les images et les boutons images dépourvus d'alternative.</li><li>Si aucun résultat n'est trouvé, le test est validé.</li></ul><h1>validate</h1><ul><li>Valider le code.</li><li>Vérifier que le validateur ne remonte aucune erreur due à l'absence d'un attribut <code>alt</code>. <span class=\"note\">(Exemple&nbsp;: <q lang=\"en\">An img element must have an alt attribute, except under certain conditions.</q>)</span></li><li>Si c'est le cas, le test est validé.</li></ul>"
+        }
+
++ Response 404
 
 # Group Glossaire
 
@@ -131,3 +109,6 @@ Glossaire du référentiel RGAA.
             "terme": "Accéder à chaque page de la collection de pages",
             "definition": "Dans le cas où la collection de pages comporte un grand nombre de pages, il est habituel de présenter ces liens d'accès aux pages par groupes de liens, par séquences de 10 liens, par exemple. Cette pratique valide le test."
         }
+
++ Response 404
+
